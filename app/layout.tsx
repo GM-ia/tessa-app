@@ -21,8 +21,8 @@ const garamond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Tessa Arrabgiata — D&D Sheet",
-  description: "Character sheet for Tessa Arrabgiata, Level 5 Barbarian",
+  title: "Tessa Arraggiata — D&D Sheet",
+  description: "Character sheet for Tessa Arraggiata, Level 5 Barbarian",
   manifest: "/manifest.json",
 };
 
