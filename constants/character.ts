@@ -1,7 +1,7 @@
 import { Explanation } from "@/types";
 
 export const CHARACTER = {
-  name: "Tessa Arrabgiata",
+  name: "Tessa Arraggiata",
   race: "Human",
   class: "Barbarian",
   level: 5,
@@ -13,7 +13,7 @@ export const CHARACTER = {
   ac: 17,
   initiative: 3,
   speed: 40,
-  hpMax: 58,
+  hpMax: 51,
   hitDice: "5d12",
 };
 

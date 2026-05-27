@@ -13,7 +13,7 @@ import HandbookTab from "@/components/tabs/HandbookTab";
 import InfoTab from "@/components/tabs/InfoTab";
 
 const INITIAL_STATE: CharacterState = {
-  hp: 58,
+  hp: 51,
   rageUsed: 0,
   isRaging: false,
   hitDiceUsed: 0,
@@ -24,7 +24,7 @@ const INITIAL_STATE: CharacterState = {
 };
 
 const TAB_TITLES: Record<string, string> = {
-  home: "Tessa Arrabgiata",
+  home: "Tessa Arraggiata",
   actions: "Actions",
   skills: "Skills",
   features: "Features & Traits",
@@ -77,7 +77,7 @@ export default function App() {
               </span>
             )}
             <span className="font-dnd text-xs" style={{ color: "var(--parchment-dim)" }}>
-              ♥ {charState.hp}/58
+              ♥ {charState.hp}/51
             </span>
           </div>
         </header>
