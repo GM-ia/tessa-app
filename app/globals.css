@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* PHB page tones */
+  --bg-deep:           #f0e6d0;   /* book page cream */
+  --bg-card:           #faf6ee;   /* panel — near white */
+  --bg-card-alt:       #fefcf8;   /* lightest panel */
+  --border-dim:        #d0b890;   /* subtle tan rule */
+  --border-gold:       #b89458;   /* parchment border */
+  --border-gold-bright:#7a5828;   /* deeper gold edge */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* THE DnD 5e crimson — sampled from PHB headers */
+  --gold:              #58180d;   /* primary accent: headings, dividers, ornaments */
+  --gold-light:        #3d1008;   /* darkest emphasis */
+  --gold-dim:          #9a6c3c;   /* warm medium amber */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Ink */
+  --parchment:         #1c1410;   /* near-black body text */
+  --parchment-dim:     #6b4c2c;   /* muted secondary text */
+
+  /* Accent inks — keep dark so they read on cream */
+  --red:               #7f1d1d;
+  --red-bright:        #9c2b1b;   /* PHB red accent */
+  --crimson:           #58180d;
+  --teal:              #1a4840;
+  --teal-bright:       #0d6657;
+  --purple:            #3d1a5c;
+  --purple-bright:     #5c2a88;
+  --blue:              #1a2d5c;
+  --blue-bright:       #1e3a8a;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ede5cf;
+  color: var(--parchment);
+  font-family: var(--font-garamond), Georgia, serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  /* Subtle warm centre-glow mimicking printed page under light */
+  background-image:
+    radial-gradient(ellipse at 50% 25%, rgba(255,250,238,0.75) 0%, rgba(245,235,210,0.55) 40%, transparent 75%),
+    radial-gradient(ellipse at 0% 100%, rgba(215,190,145,0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 0%, rgba(220,195,150,0.15) 0%, transparent 45%);
+}
+
+/* Fonts */
+.font-dnd      { font-family: var(--font-cinzel), serif; }
+.font-dnd-deco { font-family: var(--font-cinzel-deco), serif; }
+.font-dnd-sub  { font-family: var(--font-garamond), Georgia, serif; font-style: italic; }
+.font-body     { font-family: var(--font-garamond), Georgia, serif; }
+
+/* PHB panel card */
+.card-ornate {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow:
+    0 2px 10px rgba(88,24,13,0.12),
+    0 1px 3px  rgba(88,24,13,0.08),
+    inset 0 1px 2px rgba(255,250,235,0.80);
+}
+
+/* PHB ornament corners — crimson */
+.card-ornate::before,
+.card-ornate::after {
+  content: '✦';
+  position: absolute;
+  color: var(--gold);
+  font-size: 9px;
+  line-height: 1;
+  opacity: 0.55;
+}
+.card-ornate::before { top: 4px; left: 7px; }
+.card-ornate::after  { bottom: 4px; right: 7px; }
+
+/* PHB section divider — crimson rule */
+.divider-dnd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: var(--font-cinzel), serif;
+}
+.divider-dnd::before,
+.divider-dnd::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+
+/* Stat badge — PHB stat-block style */
+.stat-badge {
+  background: linear-gradient(160deg, #e8d8b8, #f2e6cc);
+  border: 1px solid var(--border-gold);
+  border-radius: 0.4rem;
+  text-align: center;
+  padding: 8px 4px;
+  box-shadow:
+    inset 0 2px 3px rgba(88,24,13,0.12),
+    0 1px 1px rgba(255,248,230,0.9);
+}
+
+/* Scrollbar hide */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+button { -webkit-user-select: none; user-select: none; }
+
+/* Rage pulse */
+@keyframes rage-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(156,43,27,0.45); }
+  50%       { box-shadow: 0 0 22px rgba(156,43,27,0.85), 0 0 44px rgba(156,43,27,0.18); }
+}
+.rage-active { animation: rage-pulse 1.5s ease-in-out infinite; }
+
+/* Crit shimmer — PHB crimson gold */
+@keyframes crit-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.crit-text {
+  background: linear-gradient(90deg, #58180d, #c8883a, #58180d, #b07028);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: crit-shimmer 2s linear infinite;
 }
