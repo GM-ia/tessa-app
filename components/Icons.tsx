@@ -71,18 +71,18 @@ export function WolfIcon({ className = "", style }: { className?: string; style?
   );
 }
 
-export function FireIcon({ className = "" }: { className?: string }) {
+export function FireIcon({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2 C12 2 8 6 8 10 C8 10 6 8 7 6 C7 6 3 10 3 15 C3 19.4 7.1 22 12 22 C16.9 22 21 19.4 21 15 C21 10 17 6 17 6 C17 8 16 10 14 10 C14 7 12 2 12 2 Z"
             opacity="0.9" />
     </svg>
   );
 }
 
-export function HeartIcon({ className = "" }: { className?: string }) {
+export function HeartIcon({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 21 C12 21 3 15 3 9 C3 6.2 5.2 4 8 4 C9.9 4 11.5 5 12 6.3 C12.5 5 14.1 4 16 4 C18.8 4 21 6.2 21 9 C21 15 12 21 12 21 Z" />
     </svg>
   );
